@@ -127,7 +127,7 @@ struct Node
     }
 };
 */
-void preorder(Node* root , vector<int> &v){
+void preorder(Node* root, vector <int> &v){
     if(root == NULL){
         return;
     }
@@ -139,8 +139,9 @@ void preorder(Node* root , vector<int> &v){
 //Function to return a list containing the preorder traversal of the tree.
 vector <int> preorder(Node* root)
 {
-  // Your code here
+    // Your code here
     vector<int> v;
     preorder(root,v);
     return v;
+    
 }
