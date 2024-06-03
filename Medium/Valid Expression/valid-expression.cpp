@@ -20,30 +20,20 @@ int main()
 
 bool valid(string s)
 {
-    // code here 
-    stack<char> s1;
+    // code here
+    stack <char> st;
     for(int i=0;i<s.size();i++){
-        
-        //if opening bracket, then push it into the stack 
-        if(s[i] == '(' || s[i] == '{' || s[i] == '['){
-            s1.push(s[i]);
+        if(s[i] == '[' || s[i] =='{' || s[i] == '('){
+            st.push(s[i]);
         }
-        //if closing bracket check the top, and pop
-        else{
-            if(!s1.empty()){
-                if(s[i] == ']' && s1.top() == '['){
-                    s1.pop();
-                }
-                else if(s[i] == '}' && s1.top() == '{'){
-                    s1.pop();
-                }
-                else if(s[i] == ')' && s1.top() == '('){
-                    s1.pop();
-                }
-                else return false;
-            }
+        else if(!st.empty()){
+            if(s[i] == ')' && st.top() == '(') st.pop();
+            else if(s[i] == ']' && st.top() == '[') st.pop();
+            else if(s[i] == '}' && st.top() == '{') st.pop();
             else return false;
         }
+        else return false;
     }
-    return s1.empty();
-}
+    if(st.empty()) return true;
+    else return false;
+} 
